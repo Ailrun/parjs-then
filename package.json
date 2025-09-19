@@ -16,7 +16,7 @@
     "eslint:fix": "eslint --fix '**/*.ts'",
     "lint:check": "run-s eslint:check prettier:check",
     "lint:fix": "run-s eslint:fix prettier:fix",
-    "test:coverage": "yarn workspaces foreach -Rpt --from '{char-info,parjs}' run test:coverage"
+    "test:coverage": "yarn workspaces foreach -Rpt --from '{parjs-then}' run test:coverage"
   },
   "husky": {
     "hooks": {
@@ -29,8 +29,7 @@
   },
   "prettier": "./.prettierrc.json",
   "dependencies": {
-    "char-info": "workspace:^",
-    "parjs": "workspace:^"
+    "parjs-then": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^22",

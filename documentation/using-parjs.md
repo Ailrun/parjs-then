@@ -66,10 +66,10 @@ Start writing your parser implementation little by little:
 ```ts
 // shopping-list.ts
 import { string } from "parjs";
-import { many1, manySepBy, or, recover, then } from "parjs/combinators";
+import { many1, manySepBy, or, recover, andThen } from "parjs/combinators";
 
 export const fruitSection = string("Remember to buy ").pipe(
-    then(string("apples").pipe(or(string("bananas"))))
+    andThen(string("apples").pipe(or(string("bananas"))))
 );
 ```
 
