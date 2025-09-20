@@ -14,7 +14,7 @@ The following is the documentation of `parjs`, with combinator names used in `pa
 Documentation:
 
 -   [API Documentation](https://gregros.github.io/parjs/)
--   [Using Parjs - Developer guide](/documentation/using-parjs.md)
+-   [Using Parjs - Developer guide](../../documentation/using-parjs.md)
 
 Parjs a parser combinator library inspired by [Parsec](https://wiki.haskell.org/Parsec) and [FParsec](http://www.quanttec.com/fparsec/) (its F# adaptation), and written in TypeScript.
 

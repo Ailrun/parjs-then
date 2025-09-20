@@ -2,6 +2,13 @@
 
 This project follows semantic versioning.
 
+## 1.0.2
+
+### Fixed
+
+-   Fixed code style
+-   Fixed links in README.
+
 ## 1.0.1
 
 ### Fixed
