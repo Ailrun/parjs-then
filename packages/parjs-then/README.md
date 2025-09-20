@@ -1,6 +1,7 @@
 # Parjs-then
 
-An extension fork of [parjs](https://gregros.github.io/parjs/). The following is the documentation of parjs.
+An extension fork of [`parjs`](https://gregros.github.io/parjs/).
+The following is the documentation of `parjs`, with combinator names used in `parjs-then`.
 
 # Parjs
 
