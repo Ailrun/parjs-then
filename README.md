@@ -176,7 +176,7 @@ console.log(helloParser.parse("whatever").toString());
 // Hard failure at Ln 1 Col 6
 // 1 | hello world
 //           ^expecting "world"
-// Stack: string < then < string
+// Stack: string < andThen < string
 ```
 
 To avoid this situation, write parsers that quickly determine if the input is for them, and combinators like `or` that will immediately apply a fallback parser instead.

@@ -165,7 +165,7 @@ Sequential combinators tend to do this a lot if a parser fails late in the seque
 // Parses the string "hello " and then the string "world"
 // or parses the string "hello kittie"
 const helloParser = string("hello ").pipe(
-    then(
+    andThen(
         // If this parser fails, ⚙️then will upgrade
         // it to a 😬Hard failure.
         string("world")
@@ -178,14 +178,14 @@ console.log(helloParser.parse("whatever").toString());
 // Hard failure at Ln 1 Col 6
 // 1 | hello world
 //           ^expecting "world"
-// Stack: string < then < string
+// Stack: string < andThen < string
 ```
 
 To avoid this situation, write parsers that quickly determine if the input is for them, and combinators like `or` that will immediately apply a fallback parser instead.
 
 ```typescript
 const helloParser2 = string("hello ").pipe(
-    then(
+    andThen(
         // The 😕Soft failure in the 🍕"world" parser
         // is handled immediately using ⚙️or
         // so it doesn't reach ⚙️then
@@ -200,7 +200,7 @@ However, sometimes hard failures are inevitable or you can’t be bothered. In t
 // Let's do the same thing as the first time:
 const helloParser3 = string("hello ").pipe(
     // ⚙️then will fail 😬Hard, like we talked about:
-    then(string("world")),
+    andThen(string("world")),
     // But then the ⚙️recover combinator will downgrade the failure:
     recover(() => ({ kind: "Soft" })),
     // So the ⚙️or combinator can be used:
@@ -261,7 +261,7 @@ const pNameChar = uniLetter();
 const pName = pNameChar.pipe(many());
 
 // 🍕"שלום שמי " ➜ ⚙️and then, 🍕ᵘLetter ➜ ⚙️until it fails
-const greeting = string(`שלום שמי `).pipe(qthen(pName));
+const greeting = string(`שלום שמי `).pipe(butThen(pName));
 
 assert(greeting.parser("שלום, שמי גרג").value === "גרג");
 ```
@@ -276,9 +276,9 @@ assert(greeting.parser("שלום, שמי גרג").value === "גרג");
 // 🍕"ice " ➜ ⚙️and then, 🍕one or more spaces
 // ➜ ⚙️and then, the regexp /\s*baby/
 string("ice").pipe(
-    thenq(spaces1()),
-    then("ice"), // Implicitly: string("ice ")
-    then(/\s*baby/) // Implicitly: regexp(/\s*baby/)
+    followedBy(spaces1()),
+    andThen("ice"), // Implicitly: string("ice ")
+    andThen(/\s*baby/) // Implicitly: regexp(/\s*baby/)
 );
 ```
 
@@ -290,11 +290,11 @@ Here's an example of the difference:
 
 ```typescript
 // This will infer "world" to the constant type of "world"
-const parser: Parjser<["hello", "world"]> = string("hello").pipe(then(string("world")));
+const parser: Parjser<["hello", "world"]> = string("hello").pipe(andThen(string("world")));
 
 // This will infer to the string type, which may be more confusing to debug, and
 // have issues with type aliases
-const parser: Parjser<["hello", string]> = string("hello").pipe(then("world"));
+const parser: Parjser<["hello", string]> = string("hello").pipe(andThen("world"));
 ```
 
 ### Debugging
