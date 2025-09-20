@@ -1,6 +1,6 @@
 {
   "name": "parjs-then",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extension of parjs, a library for building parsers using combinators.",
   "keywords": [
     "parser",
