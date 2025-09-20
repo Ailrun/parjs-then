@@ -6,7 +6,7 @@ This project follows semantic versioning.
 
 ### Fixed
 
-- Fixed types in README, so that new users get less confused.
+-   Fixed types in README, so that new users get less confused.
 
 ## 1.0.0
 

@@ -1,16 +1,16 @@
 import type { Parjser } from "parjs-then";
 import { anyCharOf, eof, newline, result, string } from "parjs-then";
 import {
+    andThen,
     between,
+    butThen,
+    followedBy,
     many,
     many1,
     map,
     maybe,
     or,
-    butThen,
-    stringify,
-    andThen,
-    followedBy
+    stringify
 } from "parjs-then/combinators";
 
 // This is a parser for .ini files. It's a simple format that looks like this:

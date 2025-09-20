@@ -1,11 +1,11 @@
-name: publish char-info
+name: publish parjs-then
 on:
   push:
     branches:
       - master
     paths:
-      - "packages/char-info/**"
-      - ".github/workflows/char-info.push.yaml"
+      - "packages/parjs-then/**"
+      - ".github/workflows/parjs-then.push.yaml"
       - "yaml.lock"
       - ".*"
   workflow_dispatch:
@@ -47,29 +47,29 @@ jobs:
 
       - name: SETUP YARN
         run: yarn set version stable
+
       - name: INSTALL
         run: yarn install --immutable
 
       - name: BUILD
-        run: yarn workspaces foreach -Rpt --from '{char-info,char-info}' run build
+        run: yarn workspaces foreach -Rpt --from '{parjs-then}' run build
 
       - name: LINT
-        run: yarn workspace char-info run lint:check
+        run: yarn workspace parjs-then run lint:check
 
       - name: TEST
-        run: yarn workspace char-info run test:coverage
+        run: yarn workspace parjs-then run test:coverage
 
       - name: Upload coverage reports to Codecov with GitHub Action
         uses: codecov/codecov-action@v4.2.0
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          directory: packages/char-info/coverage
-          flags: char-info
-
+          directory: packages/parjs-then/coverage
+          flags: parjs-then
       - name: SETUP PUBLISH TOKEN
         run: 'echo "npmAuthToken: ${NPM_TOKEN}" >> ~/.yarnrc.yml'
 
-      - name: PUBLISH CHAR-INFO PACKAGE
-        working-directory: packages/char-info
+      - name: PUBLISH parjs-then PACKAGE
+        working-directory: packages/parjs-then
         run: yarn npm publish --access public

@@ -1,5 +1,5 @@
 import { fail, nope } from "@lib";
-import { reason, andThen } from "@lib/combinators";
+import { andThen, reason } from "@lib/combinators";
 
 describe("expects combinator", () => {
     const base = nope("deez nuts");

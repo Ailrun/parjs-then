@@ -25,5 +25,5 @@ export type { ParserFailureState, RecoveryFunction } from "./recover";
 export { replaceState } from "./replace-state";
 export type { UserStateOrProjection } from "./replace-state";
 export { stringify } from "./stringify";
-export { butThen, andThen, followedBy } from "./then";
+export { andThen, butThen, followedBy } from "./then";
 export { thenPick } from "./then-pick";

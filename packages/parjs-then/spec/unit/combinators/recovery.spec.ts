@@ -1,15 +1,15 @@
 import type { Parjser, ParjsFailure } from "@lib";
 import { fail, nope, rest, ResultKind, string } from "@lib";
 import {
+    andThen,
+    butThen,
     mapConst,
     maybe,
     not,
     or,
-    butThen,
     reason,
     recover,
-    stringify,
-    andThen
+    stringify
 } from "@lib/combinators";
 
 describe("maybe combinator", () => {

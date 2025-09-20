@@ -1,9 +1,12 @@
 export {
+    andThen,
     backtrack,
     between,
+    butThen,
     each,
     exactly,
     flatten,
+    followedBy,
     later,
     many,
     many1,
@@ -18,14 +21,11 @@ export {
     not,
     or,
     pipe,
-    butThen,
     reason,
     recover,
     replaceState,
     stringify,
-    andThen,
-    thenPick,
-    followedBy
+    thenPick
 } from "./internal/combinators";
 export type {
     ArrayWithSeparators,

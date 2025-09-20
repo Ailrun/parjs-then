@@ -1,19 +1,19 @@
 import type { Parjser } from "@lib";
 import { ResultKind, anyCharOf, eof, fail, float, rest, result, string } from "@lib";
 import {
+    andThen,
     between,
+    butThen,
     each,
     exactly,
+    followedBy,
     many,
     manyBetween,
     manySepBy,
     manyTill,
     mapConst,
-    butThen,
     stringify,
-    andThen,
-    thenPick,
-    followedBy
+    thenPick
 } from "@lib/combinators";
 import { many1 } from "@lib/internal/combinators";
 import { getArrayWithSeparators } from "@lib/internal/combinators/many-sep-by";

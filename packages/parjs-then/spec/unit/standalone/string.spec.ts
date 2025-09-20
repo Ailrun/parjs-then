@@ -20,7 +20,7 @@ import {
     upper,
     whitespace
 } from "@lib";
-import { many, andThen } from "@lib/combinators";
+import { andThen, many } from "@lib/combinators";
 
 const uState = {};
 

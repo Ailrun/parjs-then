@@ -1,5 +1,5 @@
 import { ResultKind, fail, result, string } from "@lib";
-import { manySepBy, stringify, andThen, followedBy } from "@lib/combinators";
+import { andThen, followedBy, manySepBy, stringify } from "@lib/combinators";
 import { getArrayWithSeparators } from "@lib/internal/combinators/many-sep-by";
 
 const prs = string("ab");

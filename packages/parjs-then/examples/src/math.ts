@@ -14,7 +14,7 @@
 import type { Parjser } from "parjs-then";
 import { float, string } from "parjs-then";
 import type { DelayedParjser } from "parjs-then/combinators";
-import { between, later, many, map, or, andThen, followedBy } from "parjs-then/combinators";
+import { andThen, between, followedBy, later, many, map, or } from "parjs-then/combinators";
 
 export interface Expression {
     calculate(): number;

@@ -1,5 +1,5 @@
 import { ResultKind, eof, fail, rest, string } from "@lib";
-import { each, mapConst, andThen, followedBy } from "@lib/combinators";
+import { andThen, each, followedBy, mapConst } from "@lib/combinators";
 
 const excessInput = "abcde";
 

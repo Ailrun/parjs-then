@@ -1,6 +1,6 @@
 import type { ParjsFailure } from "@lib";
 import { string, whitespace } from "@lib";
-import { exactly, manySepBy, andThen } from "@lib/combinators";
+import { andThen, exactly, manySepBy } from "@lib/combinators";
 import { visualizeTrace } from "@lib/internal/trace-visualizer";
 
 describe("trace", () => {

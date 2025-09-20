@@ -1,6 +1,6 @@
 import type { Parjser } from "@lib";
 import { fail, ResultKind, string } from "@lib";
-import { maybe, butThen, stringify, andThen } from "@lib/combinators";
+import { andThen, butThen, maybe, stringify } from "@lib/combinators";
 
 describe("maybe combinator", () => {
     it("works", () => {

@@ -31,28 +31,19 @@ jobs:
         run: yarn install --immutable
 
       - name: BUILD
-        run: yarn workspaces foreach -Rpt --from '{char-info,parjs}' run build
+        run: yarn workspaces foreach -Rpt --from '{parjs-then}' run build
 
       - name: LINT
-        run: yarn workspaces foreach -Rpt --from '{char-info,parjs}' run lint:check
+        run: yarn workspaces foreach -Rpt --from '{parjs-then}' run lint:check
 
       - name: TEST
-        run: yarn workspaces foreach -Rpt --from '{char-info,parjs}' run test:coverage
+        run: yarn workspaces foreach -Rpt --from '{parjs-then}' run test:coverage
 
       - name: Upload coverage reports to Codecov with GitHub Action
         uses: codecov/codecov-action@v4.2.0
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          plugin: noop
-          directory: packages/char-info/coverage
-          flags: char-info
-
-      - name: Upload coverage reports to Codecov with GitHub Action
-        uses: codecov/codecov-action@v4.2.0
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        with:
-          directory: packages/parjs/coverage
-          flags: parjs
+          directory: packages/parjs-then/coverage
+          flags: parjs-then
           plugin: noop

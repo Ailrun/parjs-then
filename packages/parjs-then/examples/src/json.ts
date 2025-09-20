@@ -9,16 +9,16 @@ import {
     whitespace
 } from "parjs-then";
 import {
+    andThen,
     between,
+    butThen,
+    followedBy,
     later,
     many,
     manySepBy,
     map,
     or,
-    butThen,
-    stringify,
-    andThen,
-    followedBy
+    stringify
 } from "parjs-then/combinators";
 
 export class JsonNumber {

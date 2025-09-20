@@ -1,5 +1,5 @@
 import { eof, string } from "@lib";
-import { backtrack, each, map, replaceState, andThen } from "@lib/combinators";
+import { andThen, backtrack, each, map, replaceState } from "@lib/combinators";
 
 describe("special combinators", () => {
     describe("backtrack", () => {
